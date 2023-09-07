@@ -1,6 +1,18 @@
 # Dia - Application Data Modelling Specification
 
 v0.0.1
+## Table of Contents
+
+- [Dia - Application Data Modelling Specification](#dia---application-data-modelling-specification)
+  - [Introduction](#introduction)
+  - [Models](#models)
+    - [Fields](#fields)
+      - [Atomic Types](#atomic-types)
+      - [Supported Field Attributes](#supported-field-attributes)
+    - [Identifiers](#identifiers)
+    - [Related](#related)
+      - [Supported Ownership Values](#supported-ownership-values)
+      - [Supported Cardinality Values](#supported-cardinality-values)
 
 ## Introduction
 
