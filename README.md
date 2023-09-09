@@ -16,9 +16,9 @@ v0.0.1
 
 ## Introduction
 
-Simple, intuitive base data modelling specification for the Kaloseia ecosystem. This specification represents the foundation that will allow for the creation of a multi-stack, technology-agnostic application management framework in subsequent projects.
+`Dia` is a simple, intuitive base data modelling specification for the Kaloseia ecosystem. This specification represents the foundation that will allow for the creation of a multi-stack, technology-agnostic application management framework in subsequent Kaloseia projects.
 
-The primary goal is the creation of a centralized, declarative data modelling format that can be utilized by both technical and non-technical stakeholders to specify standardized business application data, that can then be generatively transpiled into stack-specific technologies.
+The primary goal is the creation of a centralized, declarative data modelling format that can be utilized by both technical and non-technical stakeholders to specify standardized business application data and rules, that can then be generatively transpiled into layer-specific technologies across the stack.
 
 ## Models
 
@@ -62,15 +62,15 @@ Denoted by the `fields:` key, the model fields are specified as a uniquely named
 
 #### Atomic Types
 
-* UUID: A RFC-4122 compatible UUID string.
-* AutoIncrement: A classic numeric, auto-incrementable record ID.
-* String: A variable-length string.
-* Integer: A numeric value for zero, whole numbers, and their negative counterparts.
-* Float: A numeric floating-point decimal value.
-* Time: A timestamp value with a UTC offset.
-* Date: A timestamp value as a date with a UTC offset and zero time values.
-* Protected: An encryptable and decryptable value for sensitive information such as API keys.
-* Sealed: A hashable value that can not be decrypted (typically passwords).
+* `UUID`: A RFC-4122 compatible UUID string.
+* `AutoIncrement`: A classic numeric, auto-incrementable record ID.
+* `String`: A variable-length string.
+* `Integer`: A numeric value for zero, whole numbers, and their negative counterparts.
+* `Float`: A numeric floating-point decimal value.
+* `Time`: A timestamp value with a UTC offset.
+* `Date`: A timestamp value as a date with a UTC offset and zero time values.
+* `Protected`: An encryptable and decryptable value for sensitive information such as API keys.
+* `Sealed`: A hashable value that can not be decrypted (typically passwords).
 
 #### Supported Field Attributes
 
@@ -100,5 +100,7 @@ Each relationship is characterized by an `ownership`, as in the directionality o
 
 #### Supported Cardinality Values
 
-* `One`
-* `Many`
+* `One`: Relationships have a cardinality of one, when the current model's relationship supports one related model instance.
+  * *Example:* "Address ForOne User": Address is related to one user.
+* `Many`: Relationships have a cardinality of many, when the current model's relationship supports a variable number of related model instances.
+  * *Example:* "User HasMany Address": User is related to many addresses.
