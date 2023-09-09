@@ -5,13 +5,16 @@ v0.0.1
 
 - [Introduction](#introduction)
 - [Models](#models)
-  - [Fields](#fields)
+  - [Model Fields](#model-fields)
     - [Atomic Types](#atomic-types)
     - [Supported Field Attributes](#supported-field-attributes)
   - [Identifiers](#identifiers)
   - [Related](#related)
     - [Supported Ownership Values](#supported-ownership-values)
     - [Supported Cardinality Values](#supported-cardinality-values)
+- [Entities](#entities)
+  - [Entity Fields](#entity-fields)
+    - [Indirected Types](#indirected-types)
 
 ## Introduction
 
@@ -57,7 +60,7 @@ related:
     type: HasMany
 ```
 
-### Fields
+### Model Fields
 
 Denoted by the `fields:` key, the model fields are specified as a uniquely named key (example: `Street:`) and the finer-grained field configuration.
 
@@ -104,4 +107,46 @@ Each relationship is characterized by an `ownership`, as in the directionality o
 * `One`: Relationships have a cardinality of one, when the current model's relationship supports one related model instance.
   * *Example:* "Address ForOne User": Address is related to one user.
 * `Many`: Relationships have a cardinality of many, when the current model's relationship supports a variable number of related model instances.
-  * *Example:* "User HasMany Address": User is related to many addresses.
+  * *Example:* "Owner HasMany Address": Owner is related to many addresses.
+
+## Entities
+
+*Disclaimer:* Entities are a work in progress and are likely to change more frequently than Models.
+
+Entities represent indirect data structures that route internally to different Model field subsets for business data flattening and aggregation. They are analogous to SQL views. The motivation for this is that it decouples domain data structures from underlying technical data structures (Models) for an improved developer experience and allowing for the simpler specification of business rules / constraints.
+
+Each model consists of a `name`, and a set of `fields`. 
+
+`identifiers` and primitive field types are inherited from the root Model definition (analogous to SQL views). With Entities the primary identifier must be immutable on the Model level (as opposed to Models themselves) to allow for static data migration between different technical services or versions.
+
+`attributes` are currently unsupported for lack of a solid use-case.
+
+*Note:* Relationships on an entity level are still under debate, as the benefit is not yet clear for the added complexity and performance trade-offs.
+
+*Simple Example:* `user.ent`
+```yaml
+name: User
+fields:
+  UUID:
+    type: User.UUID
+  Name:
+    type: User.Name
+  Street:
+    type: User.Address.Street
+  HouseNr:
+    type: User.Address.HouseNr
+  ZipCode:
+    type: User.Address.ZipCode
+  City:
+    type: User.Address.City
+```
+
+### Entity Fields
+
+Denoted by the `fields:` key, the entity fields are specified as a uniquely named key (example: `Street:`) and the finer-grained field configuration.
+
+#### Indirected Types
+
+All entity field types are indirected model field paths. This means that the path must begin with a singular root model (*Example:* `type: User.Address.Street` -> `User` as the "root model"), then include the related model names or aliases, and terminate in a field of the last related model name. The type is inherited from the terminal model field's type.
+
+As you may suspect, "many" related model relationships are problematic for indirected types, and are still unsupported until we have explored the "Entity to Model" space more.
