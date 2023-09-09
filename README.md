@@ -3,20 +3,21 @@
 v0.0.1
 ## Table of Contents
 
-- [Dia - Application Data Modelling Specification](#dia---application-data-modelling-specification)
-  - [Introduction](#introduction)
-  - [Models](#models)
-    - [Fields](#fields)
-      - [Atomic Types](#atomic-types)
-      - [Supported Field Attributes](#supported-field-attributes)
-    - [Identifiers](#identifiers)
-    - [Related](#related)
-      - [Supported Ownership Values](#supported-ownership-values)
-      - [Supported Cardinality Values](#supported-cardinality-values)
+- [Introduction](#introduction)
+- [Models](#models)
+  - [Fields](#fields)
+    - [Atomic Types](#atomic-types)
+    - [Supported Field Attributes](#supported-field-attributes)
+  - [Identifiers](#identifiers)
+  - [Related](#related)
+    - [Supported Ownership Values](#supported-ownership-values)
+    - [Supported Cardinality Values](#supported-cardinality-values)
 
 ## Introduction
 
-`Dia` is a simple, intuitive base data modelling specification for the Kaloseia ecosystem. This specification represents the foundation that will allow for the creation of a multi-stack, technology-agnostic application management framework in subsequent Kaloseia projects.
+`Dia` is a simple, intuitive base data modelling specification for the Kaloseia ecosystem. This specification represents the foundation that will allow for the creation of a multi-stack, technology-agnostic application management framework in subsequent Kaloseia projects. 
+
+The name stems from the ancient greek prefix "dia" for "through," "across," "between," or "apart", and is symbolic for how the framework helps maintain data and process consistency throughout the software application stack.
 
 The primary goal is the creation of a centralized, declarative data modelling format that can be utilized by both technical and non-technical stakeholders to specify standardized business application data and rules, that can then be generatively transpiled into layer-specific technologies across the stack.
 
