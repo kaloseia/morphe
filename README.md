@@ -7,7 +7,6 @@ v0.0.1
 - [Models](#models)
   - [Model Fields](#model-fields)
     - [Atomic Types](#atomic-types)
-    - [Supported Field Attributes](#supported-field-attributes)
   - [Identifiers](#identifiers)
   - [Related](#related)
     - [Supported Ownership Values](#supported-ownership-values)
@@ -64,6 +63,10 @@ related:
 
 Denoted by the `fields:` key, the model fields are specified as a uniquely named key (example: `Street:`) and the finer-grained field configuration.
 
+Each field has exactly one type.
+
+Each field may have a list of unconstrained, lower, snake-case (*Example:* "immutable_identifier") attributes. Attributes may be required by specific Diasmos modules, but have no inherent meaning to the Dia specification itself.
+
 #### Atomic Types
 
 * `UUID`: A RFC-4122 compatible UUID string.
@@ -75,11 +78,6 @@ Denoted by the `fields:` key, the model fields are specified as a uniquely named
 * `Date`: A timestamp value as a date with a UTC offset and zero time values.
 * `Protected`: An encryptable and decryptable value for sensitive information such as API keys.
 * `Sealed`: A hashable value that can not be decrypted (typically passwords).
-
-#### Supported Field Attributes
-
-* `immutable`: Immutable fields that will never change across the application lifecycle.
-* `mandatory`: Fields that must be filled during creation and cannot be emptied during the record's lifecycle.
 
 ### Identifiers
 
@@ -119,7 +117,7 @@ Each model consists of a `name`, and a set of `fields`.
 
 `identifiers` and primitive field types are inherited from the root Model definition (analogous to SQL views). With Entities the primary identifier must be immutable on the Model level (as opposed to Models themselves) to allow for static data migration between different technical services or versions.
 
-`attributes` are currently unsupported for lack of a solid use-case.
+`attributes` are currently unsupported on the entity level for lack of a solid use-case.
 
 *Note:* Relationships on an entity level are still under debate, as the benefit is not yet clear for the added complexity and performance trade-offs.
 
