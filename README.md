@@ -115,7 +115,7 @@ Entities represent indirect data structures that route internally to different M
 
 Each model consists of a `name`, and a set of `fields`. 
 
-`identifiers` and primitive field types are inherited from the root Model definition (analogous to SQL views). With Entities the primary identifier must be immutable on the Model level (as opposed to Models themselves) to allow for static data migration between different technical services or versions.
+`identifiers` and primitive field types are inherited from the root Model definition (analogous to SQL views). With Entities the primary identifier should be immutable on the Model level (as opposed to Models themselves) to allow for static data migration between different technical services or versions. It is recommended to use `AutoIncrement` ID fields for the model levels, and `UUID` ID fields for the entity levels for improved clarity.
 
 `attributes` are currently unsupported on the entity level for lack of a solid use-case.
 
