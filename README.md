@@ -126,6 +126,8 @@ name: User
 fields:
   UUID:
     type: User.UUID
+    attributes:
+      - immutable
   Name:
     type: User.Name
   Street:
