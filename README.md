@@ -77,6 +77,7 @@ Each field may have a list of unconstrained, lower, snake-case (*Example:* "immu
 * `String`: A variable-length string.
 * `Integer`: A numeric value for zero, whole numbers, and their negative counterparts.
 * `Float`: A numeric floating-point decimal value.
+* `Boolean`: A boolean (true / false) value.
 * `Time`: A timestamp value with a UTC offset.
 * `Date`: A timestamp value as a date with a UTC offset and zero time values.
 * `Protected`: An encryptable and decryptable value for sensitive information such as API keys.
