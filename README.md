@@ -1,4 +1,4 @@
-# Dia - Application Data Modelling Specification
+# Morphe - Application Data Modelling Specification
 
 v0.0.2
 ## Table of Contents
@@ -20,9 +20,9 @@ v0.0.2
 
 ## Introduction
 
-`Dia` is a simple, intuitive base data modelling specification for the Kaloseia ecosystem. This specification represents the foundation that will allow for the creation of a multi-stack, technology-agnostic application management framework in subsequent Kaloseia projects. 
+`Morphe` is a simple, human-readable base data modelling specification.
 
-The name stems from the ancient greek prefix "dia" for "through," "across," "between," or "apart", and is symbolic for how the framework helps maintain data and process consistency throughout the software application stack.
+The name represents the ancient Greek "form" or "shape", implying an ideal form or prototype from which other forms are derived. This symbolizes how declaratively modelled data in YAML is generatively transformed into machine code.
 
 The primary goal is the creation of a centralized, declarative data modeling format that can be utilized by both technical and non-technical stakeholders to specify standardized business application data and rules, that can then be generatively transpiled into layer-specific technologies across the stack.
 
@@ -68,7 +68,7 @@ Denoted by the `fields:` key, the model fields are specified as a uniquely named
 
 Each field has exactly one type.
 
-Each field may have a list of unconstrained, lower, snake-case (*Example:* "immutable_identifier") attributes. Attributes may be required by specific Diasmos modules, but have no inherent meaning to the Dia specification itself.
+Each field may have a list of unconstrained, lower, snake-case (*Example:* "immutable_identifier") attributes. Attributes may be required by specific transpiling implementations, but have no inherent meaning to the Morphe specification itself.
 
 #### Atomic Types
 
@@ -147,7 +147,7 @@ related:
 
 Denoted by the `fields:` key, the entity fields are specified as a uniquely named key (example: `Street:`) and the finer-grained field configuration.
 
-Each field may have a list of unconstrained, lower, snake-case (*Example:* `- immutable`, `- mandatory`) attributes. Attributes may be required by specific Diasmos modules, but have no inherent meaning to the Dia specification itself.
+Each field may have a list of unconstrained, lower, snake-case (*Example:* `- immutable`, `- mandatory`) attributes. Attributes may be required by specific transpiling implementations, but have no inherent meaning to the Morphe specification itself.
 
 #### Indirected Types
 
