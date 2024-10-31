@@ -1,6 +1,6 @@
 # Morphe - Application Data Modeling Specification
 
-v0.0.3
+v0.0.4
 
 ## Table of Contents
 
@@ -28,9 +28,26 @@ v0.0.3
 
 `Morphe` is a simple, human-readable base data modeling specification.
 
-The name represents the ancient Greek "form" or "shape", implying an ideal form or prototype from which other forms are derived. This symbolizes how declaratively modelled data in YAML is generatively transformed into machine code.
+The name represents the ancient Greek "form" or "shape", implying an ideal form or prototype from which other forms are derived. This symbolizes how declaratively modelled data in YAML is generatively transformed into code.
 
-The primary goal is the creation of a centralized, declarative data modeling format that can be utilized by both technical and non-technical stakeholders to specify standardized business application data and rules, that can then be generatively transpiled into layer-specific technologies across the stack.
+As your application's codebase grows, structural changes become increasingly expensive. 
+
+Let's take something as simple as adding a `country` field to addresses managed by your application. To achieve this across the stack, you typically need to manually update the following things:
+
+* `address` SQL table creation scripts
+* `address` SQL queries
+* Backend type definitions, such as an `Address` class
+* Associated automated test arrangement and assertion blocks
+* API endpoint documentation
+* Front-end type definitions, such as an `Address` typescript type
+* Front-end form components
+* ...
+
+Tooling exists to reduce the manual work needed for some of these steps. Common examples might be an ORM that generates SQL scripts automatically from backend types or GraphQL typescript type generators from GraphQL query files. But these tools are fragmented and tend to leverage multiple disparate "sources of truth" across your application.
+
+The Morphe specification aims to provide a simple, central schema for automatically updating your code artifacts across technologies, eliminating human error, and accelerating development velocity. 
+
+By consolidating your application's data structures into a single source of truth for your entire stack, you only have to touch one place instead of many and let your selected plugins handle the rest.
 
 ## Field Types
 
@@ -54,6 +71,8 @@ Atomic field types are type primitives that is a single, indivisible unit of dat
 Enums are predefined sets of constant values that can be used as types for fields within models or structures. They enforce consistency by limiting possible values to a fixed set.
 
 Each enum consists of a `name`, a primitive `type`, and a set of `entries`. Entries are defined as symbol names with an associated primitive representation.
+
+**Note**: `type` is currently a subset of the [atomic field types](https://github.com/kaloseia/morphe?tab=readme-ov-file#atomic-field-types): `String`, `Integer`, `Float`, `Boolean`, `Time`, and `Date`.
 
 *Example:* `color.enum`
 ```yaml
