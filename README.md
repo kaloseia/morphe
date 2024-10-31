@@ -34,27 +34,6 @@ The primary goal is the creation of a centralized, declarative data modeling for
 
 ## Field Types
 
-- [Morphe - Application Data Modeling Specification](#morphe---application-data-modeling-specification)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Field Types](#field-types)
-    - [Atomic Field Types](#atomic-field-types)
-    - [Enumeration Field Types](#enumeration-field-types)
-  - [Structures](#structures)
-  - [Models](#models)
-    - [Model Fields](#model-fields)
-    - [Identifiers](#identifiers)
-    - [Related](#related)
-      - [Supported Ownership Values](#supported-ownership-values)
-      - [Supported Cardinality Values](#supported-cardinality-values)
-  - [Entities](#entities)
-    - [Entity Fields](#entity-fields)
-      - [Indirected Types](#indirected-types)
-    - [Related](#related-1)
-      - [Supported Ownership Values](#supported-ownership-values-1)
-      - [Supported Cardinality Values](#supported-cardinality-values-1)
-
-
 ### Atomic Field Types
 
 Atomic field types are type primitives that is a single, indivisible unit of data required for defining fields on higher-order data structures.
@@ -74,11 +53,12 @@ Atomic field types are type primitives that is a single, indivisible unit of dat
 
 Enums are predefined sets of constant values that can be used as types for fields within models or structures. They enforce consistency by limiting possible values to a fixed set.
 
-Each enum consists of a `name`, and a set of `entries`. Entries are defined as symbol names with an associated primitive representation.
+Each enum consists of a `name`, a primitive `type`, and a set of `entries`. Entries are defined as symbol names with an associated primitive representation.
 
 *Example:* `color.enum`
 ```yaml
 name: Color
+type: String
 entries:
   Red: 'red'
   Blue: 'blue'
