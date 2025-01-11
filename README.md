@@ -183,7 +183,7 @@ Each relationship is characterized by an `ownership`, as in the directionality o
 
 Entities are indirect data structures that route internally to model field subsets for business data flattening and aggregation. They are analogous to SQL views, decoupling domain data from underlying technical data structures (Models).
 
-Entities consist of a `name`, a set of `fields`, and related `entities`. Identifiers and field types are inherited from models.
+Entities consist of a `name`, a set of `fields`, `identifiers`,and related `entities`. Identifiers and field types are inherited from models.
 
 *Simple Example:* `user.ent`
 ```yaml
