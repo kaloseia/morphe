@@ -20,6 +20,7 @@ v0.0.4
   - [Entities](#entities)
     - [Entity Fields](#entity-fields)
       - [Indirected Types](#indirected-types)
+    - [Entity Identifiers](#entity-identifiers)
     - [Related](#related-1)
       - [Supported Ownership Values](#supported-ownership-values-1)
       - [Supported Cardinality Values](#supported-cardinality-values-1)
