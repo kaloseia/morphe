@@ -1,6 +1,6 @@
 # Morphe - Application Data Modeling Specification
 
-v0.0.3
+v0.0.4
 
 ## Table of Contents
 
@@ -203,6 +203,8 @@ fields:
     type: User.Address.ZipCode
   City:
     type: User.Address.City
+identifiers:
+  primary: UUID
 related:
   Company:
     type: ForOne
@@ -213,6 +215,12 @@ related:
 Denoted by the `fields:` key, the entity fields are specified as a uniquely named key (example: `Street:`) and the finer-grained field configuration.
 
 Each field may have a list of unconstrained, lower, snake-case (*Example:* `- immutable`, `- mandatory`) attributes. Attributes may be required by specific transpiling implementations, but have no inherent meaning to the Morphe specification itself.
+
+### Entity Identifiers
+
+Denoted by the `identifiers:` key, this section specifies how the entity can be uniquely identified. Entity identification strategies will be expanded in future versions to support various approaches like virtual/composite keys, hierarchical IDs, and surrogate bridging.
+
+Currently, entity identification supports globally unique IDs from a single referenced model field.
 
 #### Indirected Types
 
